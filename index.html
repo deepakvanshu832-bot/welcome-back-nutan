@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome Back, Saavage Nutan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Midnight Starlight & Rose Gold Theme */
         :root {
-            --bg-color-1: #ffb6c1;
-            --bg-color-2: #ffe4e1;
-            --bg-color-3: #f5f5dc;
-            --text-main: #4a3b3c;
-            --text-accent: #c47c87;
-            --glass-bg: rgba(255, 255, 255, 0.45);
-            --glass-border: rgba(255, 255, 255, 0.6);
-            --glow: 0 0 20px rgba(255, 182, 193, 0.8);
+            --bg-dark: #0a0a14;
+            --bg-accent: #16162a;
+            --gold-light: #fbe5a2;
+            --gold-main: #d4af37;
+            --gold-dark: #aa842c;
+            --rose-gold: #b76e79;
+            --text-main: #f0f0f5;
+            --text-muted: #a0a0b5;
+            --glass-bg: rgba(22, 22, 42, 0.6);
+            --glass-border: rgba(212, 175, 55, 0.3);
+            --glow: 0 0 25px rgba(212, 175, 55, 0.4);
+            --rose-glow: 0 0 25px rgba(183, 110, 121, 0.5);
         }
 
         * {
@@ -25,33 +30,33 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             color: var(--text-main);
-            background: linear-gradient(-45deg, var(--bg-color-1), var(--bg-color-2), var(--bg-color-3), #fff0f5);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% 0%, #1a1a3a 0%, var(--bg-dark) 70%);
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
         h1, h2, h3, .serif {
-            font-family: 'Lora', serif;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
         }
 
-        /* Glassmorphism utility */
+        /* Glassmorphism */
         .glass {
             background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            box-shadow: 0 8px 32px 0 rgba(200, 150, 160, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        .glass:hover {
+            border-color: var(--gold-main);
+            box-shadow: var(--glow);
         }
 
         /* Navigation */
@@ -60,62 +65,73 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 15px 5%;
+            padding: 20px 5%;
             display: flex;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(10, 10, 20, 0.8);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         nav a {
             text-decoration: none;
-            color: var(--text-main);
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: color 0.3s, text-shadow 0.3s;
+            color: var(--text-muted);
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            transition: color 0.3s, text-shadow 0.3s;
         }
 
         nav a:hover {
-            color: var(--text-accent);
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+            color: var(--gold-light);
+            text-shadow: 0 0 10px var(--gold-main);
         }
 
-        /* Sections */
+        /* Layout */
         section {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 100px 5% 50px;
+            padding: 120px 5% 60px;
             position: relative;
             z-index: 10;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             width: 100%;
             text-align: center;
-            padding: 40px;
+            padding: 50px;
+        }
+
+        /* Typography */
+        .gradient-text-gold {
+            background: linear-gradient(to right, var(--gold-light), var(--gold-main), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-text-rose {
+            background: linear-gradient(to right, #ffafbd, var(--rose-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* Reveal Animation */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+            transform: translateY(50px);
+            transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
         }
         
         .reveal.active {
@@ -123,336 +139,329 @@
             transform: translateY(0);
         }
 
-        /* Image Placeholders */
+        /* Placeholders */
         .img-placeholder {
-            background: rgba(255, 255, 255, 0.6);
-            border: 2px dashed var(--text-accent);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed var(--gold-dark);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-accent);
-            font-weight: 500;
+            color: var(--gold-dark);
+            font-weight: 300;
+            letter-spacing: 1px;
+            position: relative;
             overflow: hidden;
-            position: relative;
         }
-        
-        .img-placeholder::after {
-            content: "\f03e";
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
-            font-size: 2rem;
-            opacity: 0.3;
+
+        .img-placeholder::before {
+            content: '';
             position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+            transform: skewX(-20deg);
+            animation: shine 4s infinite;
         }
 
-        /* Section 1: Welcome */
-        #welcome .title {
-            font-size: clamp(3rem, 6vw, 5rem);
-            color: var(--text-main);
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 10px rgba(255,255,255,0.7);
+        @keyframes shine {
+            100% { left: 200%; }
         }
 
-        #welcome .subtitle {
-            font-size: clamp(1.2rem, 2vw, 1.8rem);
-            font-style: italic;
-            color: var(--text-accent);
-            margin-bottom: 40px;
-        }
-
-        .hero-img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            margin: 0 auto;
-            box-shadow: var(--glow);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
-        /* Section 2: Special Message */
-        #message p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        /* Section 3: Photo Memories */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .gallery-item {
-            height: 300px;
-            border-radius: 15px;
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05) translateY(-10px);
-            box-shadow: var(--glow);
-            border-color: #fff;
-        }
-
-        /* Section 4: YouTube Journey */
-        .yt-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .yt-icon {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: #fff;
-            border: 4px solid #ff0000;
-        }
-
-        .counter-box {
-            font-size: 4rem;
-            font-weight: 700;
-            color: #ff0000;
-            text-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* Section 5: Missed You */
-        .missed-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .missed-card {
-            padding: 30px;
-            transition: transform 0.3s;
-        }
-        
-        .missed-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .missed-card i {
-            font-size: 2.5rem;
-            color: var(--text-accent);
-            margin-bottom: 15px;
-        }
-
-        /* Section 6: Celebration */
-        #celebration {
-            position: relative;
-        }
-        
-        #celebration h2 {
-            font-size: 3.5rem;
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8b, #ffb6c1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
-            margin-bottom: 20px;
-        }
-
+        /* Buttons */
         .btn {
-            padding: 15px 35px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #fff;
-            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+            padding: 15px 40px;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--bg-dark);
+            background: linear-gradient(45deg, var(--gold-main), var(--gold-light));
             border: none;
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 10px;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin: 15px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(245, 87, 108, 0.6);
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold-light);
+            border: 1px solid var(--gold-main);
+        }
+
+        .btn-outline:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: #fff;
+        }
+
+        /* Section 1: Welcome */
+        #welcome .title {
+            font-size: clamp(3.5rem, 7vw, 6rem);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        #welcome .subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+        }
+
+        .hero-img {
+            width: 280px;
+            height: 350px;
+            border-radius: 120px 120px 20px 20px;
+            margin: 0 auto;
+            border: 2px solid var(--gold-main);
+            box-shadow: var(--glow);
+        }
+
+        /* Section 3: Memories */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        .gallery-item {
+            height: 320px;
+            border-radius: 15px;
+            transition: all 0.5s ease;
+            filter: grayscale(40%);
+        }
+
+        .gallery-item:hover {
+            filter: grayscale(0%);
+            transform: scale(1.03);
+            border-color: var(--gold-light);
+            box-shadow: var(--glow);
+            z-index: 2;
+        }
+
+        /* Section 4: YouTube */
+        .yt-box {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .yt-box::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,0,0,0.1) 0%, transparent 60%);
+            z-index: -1;
+        }
+
+        .yt-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid #ff0000;
+            box-shadow: 0 0 20px rgba(255,0,0,0.4);
+        }
+
+        .counter-wrap {
+            font-size: 5rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 20px #ff0000;
+            font-family: 'Montserrat', sans-serif;
+            margin: 20px 0;
+            letter-spacing: -2px;
+        }
+
+        /* Section 5: Missed */
+        .missed-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .missed-card {
+            flex: 1;
+            min-width: 250px;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .missed-card i {
+            font-size: 2.5rem;
+            color: var(--rose-gold);
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(183, 110, 121, 0.5));
         }
 
         /* Section 7: Appreciation */
-        .appreciation-content {
+        .appreciation-flex {
             display: flex;
             align-items: center;
-            gap: 40px;
+            gap: 50px;
             text-align: left;
         }
 
         .appreciation-img {
             flex: 1;
-            height: 400px;
+            height: 450px;
             border-radius: 20px;
+            border: 1px solid var(--rose-gold);
         }
 
         .appreciation-text {
-            flex: 1;
+            flex: 1.2;
+        }
+
+        .appreciation-text p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-muted);
+            margin-bottom: 20px;
         }
 
         /* Section 9: Timeline */
         .timeline {
             position: relative;
             max-width: 800px;
-            margin: 40px auto 0;
+            margin: 60px auto 0;
         }
 
         .timeline::after {
             content: '';
             position: absolute;
-            width: 4px;
-            background: rgba(255,255,255,0.8);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-            border-radius: 2px;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, var(--gold-main), transparent);
+            top: 0; bottom: 0; left: 50%;
+            transform: translateX(-50%);
         }
 
-        .tb-container {
-            padding: 10px 40px;
+        .tl-node {
+            padding: 20px 40px;
             position: relative;
-            background: inherit;
             width: 50%;
+            margin-bottom: 30px;
         }
 
-        .tb-left { left: 0; text-align: right; }
-        .tb-right { left: 50%; text-align: left; }
+        .tl-left { left: 0; text-align: right; }
+        .tl-right { left: 50%; text-align: left; }
 
-        .tb-container::after {
+        .tl-node::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background-color: white;
-            border: 4px solid var(--text-accent);
+            width: 16px;
+            height: 16px;
+            background-color: var(--bg-dark);
+            border: 3px solid var(--gold-main);
             top: 50%;
             transform: translateY(-50%);
             border-radius: 50%;
             z-index: 1;
-            box-shadow: var(--glow);
+            box-shadow: 0 0 15px var(--gold-main);
         }
 
-        .tb-right::after { left: -10px; }
+        .tl-left::after { right: -8px; }
+        .tl-right::after { left: -8px; }
 
-        .tb-content {
-            padding: 20px;
+        .tl-content {
+            padding: 30px;
+        }
+        
+        .tl-content h3 {
+            color: var(--gold-light);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
         }
 
-        /* Section 10: Final Surprise */
-        #surprise h2 {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            color: var(--text-accent);
-            margin-bottom: 30px;
-            line-height: 1.4;
-        }
-
-        .final-img {
-            width: 100%;
-            max-width: 600px;
-            height: 400px;
-            border-radius: 20px;
-            margin: 0 auto;
-        }
-
-        /* Floating Particles */
-        #particles-container {
+        /* Star Background */
+        #starfield {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none;
-            z-index: 1;
+            z-index: 0;
         }
 
-        .particle {
+        .star {
             position: absolute;
-            background: rgba(255, 255, 255, 0.8);
+            background: #fff;
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(255,255,255,0.8);
-            animation: floatUp linear infinite;
+            animation: twinkle infinite alternate;
         }
 
-        @keyframes floatUp {
-            0% { transform: translateY(100vh) scale(0); opacity: 0; }
-            20% { opacity: 1; }
-            80% { opacity: 1; }
-            100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+        @keyframes twinkle {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 10px #fff; }
         }
 
-        /* Music Toggle */
-        .music-toggle {
+        /* Controls */
+        .controls {
             position: fixed;
             bottom: 30px;
             right: 30px;
+            z-index: 1000;
+            display: flex;
+            gap: 15px;
+        }
+
+        .ctrl-btn {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
+            color: var(--gold-main);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-            color: var(--text-accent);
             cursor: pointer;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            transition: 0.3s;
         }
 
-        .music-toggle:hover {
-            transform: scale(1.1);
+        .ctrl-btn:hover {
             box-shadow: var(--glow);
+            transform: scale(1.1);
+            color: var(--gold-light);
         }
 
-        /* Confetti Elements */
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #f00;
-            opacity: 0;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            nav ul { display: none; } /* Hide nav on mobile for cleaner look */
-            .appreciation-content { flex-direction: column; text-align: center; }
-            .timeline::after { left: 31px; }
-            .tb-container { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left; }
-            .tb-left::after, .tb-right::after { left: 21px; }
-            .tb-right { left: 0%; }
+            nav ul { display: none; }
             section { padding: 80px 5% 40px; }
+            .appreciation-flex { flex-direction: column; text-align: center; }
+            .timeline::after { left: 20px; }
+            .tl-node { width: 100%; padding-left: 50px; padding-right: 0; text-align: left; }
+            .tl-left::after, .tl-right::after { left: 12px; }
+            .tl-right { left: 0; }
         }
     </style>
 </head>
 <body>
 
-    <div id="particles-container"></div>
+    <div id="starfield"></div>
 
-    <button class="music-toggle" onclick="toggleMusic()" id="musicBtn">
-        <i class="fas fa-music"></i>
-    </button>
-    <audio id="bgMusic" loop>
-        <source src="data:audio/mp3;base64,//NExAAAAANIAAAAAExBTUUzLjEwMKqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq" type="audio/mpeg">
-        </audio>
+    <div class="controls">
+        <button class="ctrl-btn" onclick="toggleMusic()" id="musicBtn" title="Play Music">
+            <i class="fas fa-music"></i>
+        </button>
+    </div>
+    
+    <audio id="bgAudio" loop>
+        <source src="data:audio/mp3;base64,//NExAAAAANIAAAAAExBTUUzLjEwMKqqqqqqqqqqqqqqqqqqqq" type="audio/mpeg">
+    </audio>
 
     <nav>
         <ul>
@@ -460,36 +469,44 @@
             <li><a href="#message">Message</a></li>
             <li><a href="#memories">Memories</a></li>
             <li><a href="#youtube">YouTube</a></li>
-            <li><a href="#missed">Missed You</a></li>
-            <li><a href="#celebration">Celebrate</a></li>
-            <li><a href="#appreciation">Appreciation</a></li>
+            <li><a href="#missed">Missed</a></li>
+            <li><a href="#appreciation">Sister</a></li>
             <li><a href="#timeline">Timeline</a></li>
             <li><a href="#surprise">Surprise</a></li>
         </ul>
     </nav>
 
     <section id="welcome">
-        <div class="container glass reveal">
-            <h1 class="title">Welcome Back,<br>Saavage Nutan</h1>
-            <p class="subtitle">"Your comeback feels like sunshine returning home."</p>
+        <div class="container reveal">
+            <h1 class="title gradient-text-gold">Welcome Back,<br>Saavage Nutan</h1>
+            <p class="subtitle">"Your comeback feels like the brightest star returning to the night sky."</p>
             <div class="img-placeholder hero-img">
                 sister-photo-main.jpg
+            </div>
+            <div style="margin-top: 40px;">
+                <a href="#message" class="btn">Begin Journey</a>
             </div>
         </div>
     </section>
 
     <section id="message">
         <div class="container glass reveal">
-            <h2 class="serif" style="font-size: 2.5rem; margin-bottom: 20px; color: var(--text-accent);">A Note from the Heart</h2>
-            <p>Taking a step back takes courage, but stepping back into your light takes pure magic. You gave yourself the grace to rest, and now, the world gets to witness your phenomenal energy once again.</p>
-            <p>We've missed your voice, your creativity, and that beautifully savage spark that only you possess. This space is yours, and we are so incredibly proud of the journey you are on.</p>
+            <h2 class="serif gradient-text-rose" style="font-size: 3rem; margin-bottom: 30px;">A Royal Return</h2>
+            <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-muted);">
+                Stepping away requires strength, but stepping back into your power is purely majestic. 
+                You gave yourself the time to breathe, and now, the world is ready to witness the magic you've cultivated. 
+                We've missed your voice, your fierce creativity, and your savage spirit.
+            </p>
+            <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-main); margin-top: 20px; font-style: italic;">
+                The throne has been waiting for you.
+            </p>
         </div>
     </section>
 
     <section id="memories">
-        <div class="container reveal">
-            <h2 class="serif" style="font-size: 2.5rem; color: var(--text-main);">Beautiful Memories</h2>
-            <p style="color: var(--text-accent);">Every picture tells a story of your amazing spirit.</p>
+        <div class="container reveal" style="max-width: 1100px;">
+            <h2 class="serif gradient-text-gold" style="font-size: 3rem;">Golden Memories</h2>
+            <p style="color: var(--text-muted);">Capturing the moments that define your brilliant spirit.</p>
             <div class="gallery">
                 <div class="img-placeholder gallery-item glass">sister-photo-1.jpg</div>
                 <div class="img-placeholder gallery-item glass">sister-photo-2.jpg</div>
@@ -500,24 +517,242 @@
     </section>
 
     <section id="youtube">
-        <div class="container glass reveal yt-card">
-            <h2 class="serif" style="font-size: 2.5rem;">The Queen of Content</h2>
-            <div class="img-placeholder yt-icon">Channel Logo</div>
-            <p style="font-size: 1.2rem; font-weight: 500;">Saavage Nutan</p>
-            <div class="counter-box" id="yt-counter">0</div>
-            <p style="font-size: 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Subscribers</p>
-            <p>Your community has been waiting. Let's make some noise!</p>
-            <button class="btn" style="background: linear-gradient(45deg, #ff0000, #cc0000); box-shadow: 0 5px 15px rgba(255,0,0,0.3);">
-                <i class="fab fa-youtube"></i> Subscribe
+        <div class="container glass reveal yt-box">
+            <h2 class="serif" style="font-size: 2.5rem;">The Empire Continues</h2>
+            <div class="img-placeholder yt-icon">Logo</div>
+            <h3 style="font-size: 1.5rem; letter-spacing: 2px;">SAAVAGE NUTAN</h3>
+            <div class="counter-wrap" id="yt-counter">0</div>
+            <p style="font-size: 1.2rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 30px;">Subscribers & Growing</p>
+            <button class="btn" style="background: linear-gradient(45deg, #cc0000, #ff0000); color: white; box-shadow: 0 0 20px rgba(255,0,0,0.4);">
+                <i class="fab fa-youtube"></i> Keep Uploading
             </button>
         </div>
     </section>
 
     <section id="missed">
-        <div class="container reveal">
-            <h2 class="serif" style="font-size: 2.5rem; margin-bottom: 10px;">Why We Missed You</h2>
-            <p>Life just wasn't the same without your vibe.</p>
+        <div class="container reveal" style="max-width: 1200px;">
+            <h2 class="serif gradient-text-rose" style="font-size: 3rem;">Why The World Missed You</h2>
             <div class="missed-grid">
                 <div class="missed-card glass">
-                    <i class="fas fa-bolt"></i>
-                    <h3 class="serif">Your Energy</h3>
+                    <i class="fas fa-fire"></i>
+                    <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 15px; color: var(--text-main);">Unmatched Energy</h3>
+                    <p style="color: var(--text-muted);">You bring a fire to the screen that is raw, authentic, and completely irreplaceable.</p>
+                </div>
+                <div class="missed-card glass">
+                    <i class="fas fa-sparkles"></i>
+                    <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 15px; color: var(--text-main);">Radiant Smile</h3>
+                    <p style="color: var(--text-muted);">A genuine joy that radiates through the lens and brightens up thousands of days.</p>
+                </div>
+                <div class="missed-card glass">
+                    <i class="fas fa-crown"></i>
+                    <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 15px; color: var(--text-main);">Savage Content</h3>
+                    <p style="color: var(--text-muted);">Nobody does it quite like you. Your perspective is uniquely your own superpower.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="celebration">
+        <div class="container glass reveal" style="padding: 80px 40px; border-color: var(--gold-main);">
+            <h2 class="serif gradient-text-gold" style="font-size: 3.5rem; margin-bottom: 20px;">Let's Celebrate!</h2>
+            <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px;">The hiatus is over. The glow-up is real. Let the gold fall!</p>
+            <button class="btn" onclick="fireGoldConfetti()">Shower The Gold ✨</button>
+        </div>
+    </section>
+
+    <section id="appreciation">
+        <div class="container reveal" style="max-width: 1100px;">
+            <div class="appreciation-flex">
+                <div class="img-placeholder appreciation-img">sister-family-photo.jpg</div>
+                <div class="appreciation-text glass" style="padding: 40px; border-radius: 20px;">
+                    <h2 class="serif gradient-text-rose" style="font-size: 2.5rem; margin-bottom: 20px;">My Sister First</h2>
+                    <p>Beyond the subscribers, the likes, and the camera flashes, you are my sister. And that is your greatest title to me.</p>
+                    <p>I have seen your struggles, your late nights, and your resilience. Seeing you emerge from your break stronger, wiser, and more beautiful inside and out makes me prouder than words can express.</p>
+                    <p style="color: var(--gold-light); font-weight: 500; font-style: italic;">I am your biggest fan in life, always.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="support">
+        <div class="container reveal">
+            <h2 class="serif gradient-text-gold" style="font-size: 3rem; margin-bottom: 20px;">We Stand With You</h2>
+            <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px;">Whatever this next chapter holds, you have an entire army of love behind you.</p>
+            <div>
+                <a href="#timeline" class="btn">Keep Shining ✨</a>
+                <a href="#surprise" class="btn btn-outline">Welcome Back Queen 👑</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline">
+        <div class="container reveal" style="max-width: 1000px;">
+            <h2 class="serif gradient-text-gold" style="font-size: 3rem;">The Constellation of You</h2>
+            <p style="color: var(--text-muted);">Connecting the dots of an amazing journey.</p>
+            
+            <div class="timeline">
+                <div class="tl-node tl-left">
+                    <div class="tl-content glass">
+                        <h3>The Spark</h3>
+                        <p style="color: var(--text-muted);">Igniting the channel and showing the world your authentic self.</p>
+                    </div>
+                </div>
+                <div class="tl-node tl-right">
+                    <div class="tl-content glass">
+                        <h3>The Rise</h3>
+                        <p style="color: var(--text-muted);">Hitting 8.8K subscribers and building a dedicated community.</p>
+                    </div>
+                </div>
+                <div class="tl-node tl-left">
+                    <div class="tl-content glass">
+                        <h3>The Eclipse</h3>
+                        <p style="color: var(--text-muted);">Taking a bold, necessary pause to rest, reflect, and realign.</p>
+                    </div>
+                </div>
+                <div class="tl-node tl-right">
+                    <div class="tl-content glass" style="border-color: var(--gold-light); box-shadow: var(--glow);">
+                        <h3 class="gradient-text-gold">The Supernova</h3>
+                        <p style="color: var(--text-main);">The grand return. Ready to shine brighter than ever before.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="surprise">
+        <div class="container reveal">
+            <div class="img-placeholder glass" style="width: 100%; max-width: 500px; height: 500px; border-radius: 50%; margin: 0 auto 40px; border-color: var(--gold-main); box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);">
+                sister-beautiful-portrait.jpg
+            </div>
+            <h2 class="serif gradient-text-gold" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.4; margin-bottom: 20px;">
+                "Welcome back, sister.<br>Your journey is not just continuing,<br>it is glowing brighter than ever."
+            </h2>
+            <p style="font-size: 1.2rem; color: var(--rose-gold); font-style: italic;">We love you, Saavage Nutan.</p>
+        </div>
+    </section>
+
+    <script>
+        // 1. Starfield Generator
+        const starfield = document.getElementById('starfield');
+        const starCount = 150;
+
+        for (let i = 0; i < starCount; i++) {
+            let star = document.createElement('div');
+            star.classList.add('star');
+            
+            // Randomize size, position, opacity, and twinkle speed
+            let size = Math.random() * 3 + 1;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.opacity = Math.random();
+            
+            let duration = Math.random() * 3 + 2;
+            let delay = Math.random() * 5;
+            star.style.animationDuration = `${duration}s`;
+            star.style.animationDelay = `${delay}s`;
+            
+            // Sprinkle some gold stars
+            if(Math.random() > 0.8) {
+                star.style.background = '#d4af37';
+                star.style.boxShadow = '0 0 5px #d4af37';
+            }
+
+            starfield.appendChild(star);
+        }
+
+        // 2. Scroll Reveal Observer
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, revealOptions);
+
+        reveals.forEach(reveal => revealOnScroll.observe(reveal));
+
+        // 3. YouTube Counter Animation
+        let counted = false;
+        const counterElement = document.getElementById('yt-counter');
+        const targetNumber = 8800;
+        
+        const counterObserver = new IntersectionObserver(function(entries) {
+            if(entries[0].isIntersecting && !counted) {
+                counted = true;
+                let current = 0;
+                const increment = targetNumber / 60; // Smooth 60 frames
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= targetNumber) {
+                        counterElement.innerText = "8.8K";
+                        clearInterval(timer);
+                    } else {
+                        // Format with comma
+                        counterElement.innerText = Math.ceil(current).toLocaleString();
+                    }
+                }, 30);
+            }
+        });
+        counterObserver.observe(document.getElementById('youtube'));
+
+        // 4. Music Toggle
+        const audio = document.getElementById('bgAudio');
+        const musicBtn = document.getElementById('musicBtn');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                musicBtn.innerHTML = '<i class="fas fa-music"></i>';
+                musicBtn.style.color = "var(--gold-main)";
+            } else {
+                audio.play().catch(e => console.log("Audio play blocked."));
+                musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                musicBtn.style.color = "var(--rose-gold)";
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // 5. Gold Confetti Effect
+        function fireGoldConfetti() {
+            const colors = ['#d4af37', '#fbe5a2', '#aa842c', '#ffffff'];
+            
+            for(let i = 0; i < 80; i++) {
+                let conf = document.createElement('div');
+                conf.style.position = 'fixed';
+                conf.style.width = (Math.random() * 10 + 5) + 'px';
+                conf.style.height = (Math.random() * 5 + 5) + 'px';
+                conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                conf.style.top = '-10px';
+                conf.style.left = Math.random() * 100 + 'vw';
+                conf.style.zIndex = '9999';
+                
+                if(Math.random() > 0.5) conf.style.borderRadius = '50%';
+                
+                document.body.appendChild(conf);
+                
+                // Animate falling
+                conf.animate([
+                    { transform: `translate3d(0, 0, 0) rotate(0deg)`, opacity: 1 },
+                    { transform: `translate3d(${Math.random()*200 - 100}px, 100vh, 0) rotate(${Math.random()*720}deg)`, opacity: 0 }
+                ], {
+                    duration: Math.random() * 2000 + 2000,
+                    easing: 'cubic-bezier(.37,0,.63,1)',
+                    fill: 'forwards'
+                });
+
+                // Cleanup DOM
+                setTimeout(() => conf.remove(), 4000);
+            }
+        }
+    </script>
+</body>
+</html>
